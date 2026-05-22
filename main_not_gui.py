@@ -327,6 +327,7 @@ while True:
             )
         for i in delete_list:
             if i in stock_market:
+                print(f"\n{i} 종목이 상장 폐지되었습니다.")
                 del stock_market[i]
             delete_list.clear()
         # 날짜 증가
