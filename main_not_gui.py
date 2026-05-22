@@ -4,6 +4,10 @@
 
 import random
 
+# 최고기록 가져오기
+with open("max.txt", "r") as f:
+    max_money = int(f.read())
+
 # 삭제
 delete_list = []
 # ============================================
@@ -117,6 +121,11 @@ class Player:
             del self.portfolio[stock.name]
 
         print(f"\n[매도 완료] {stock.name} {quantity}주 판매")
+
+        with open("max.txt", "w") as f:
+            if max_money < self.money:
+                max_money = self.money
+                f.write(max_money)
 
     # ========================================
     # 총 자산 계산
