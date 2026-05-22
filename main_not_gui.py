@@ -26,7 +26,7 @@ class Stock:
     def update_price(self):
 
         change = random.randint(70, 130)
-        self.price = int(self.price * change)
+        self.price = int(self.price * change/100)
 
         if self.price < self.start_price / 10:
             delete_list.append(self.name)
