@@ -8,7 +8,7 @@ import random
 with open("max.txt", "r") as f:
     max_money = int(f.read())
 
-# 삭제
+# 삭제 리스트
 delete_list = []
 # ============================================
 # 주식 클래스
@@ -121,11 +121,6 @@ class Player:
             del self.portfolio[stock.name]
 
         print(f"\n[매도 완료] {stock.name} {quantity}주 판매")
-
-        with open("max.txt", "w") as f:
-            if max_money < self.money:
-                max_money = self.money
-                f.write(max_money)
 
     # ========================================
     # 총 자산 계산
@@ -285,6 +280,11 @@ while True:
             quantity
         )
 
+        with open("max.txt", "w") as f:
+            if max_money < player.money:
+                max_money = player.money
+                f.write(str(max_money))
+
     # ========================================
     # 포트폴리오 확인
     # ========================================
@@ -304,6 +304,7 @@ while True:
 
         print(f"\n총 자산: {total_assets:,.0f}원")
         print(f"수익률: {profit_rate:.2f}%")
+        print(f"최고기록: {max_money:,.0f}원")
 
     # ========================================
     # 다음 날 진행
