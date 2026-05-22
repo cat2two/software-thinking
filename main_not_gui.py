@@ -230,6 +230,9 @@ while True:
     for stock in stock_market.values():
 
         print(f"{stock.name}: {stock.price:,}원")
+    
+    # 현재 자산 출력
+    print(f"\n현재 보유 자산: {player.money:,.0f}원")
 
     # 메뉴 출력
     print("\n1. 매수")
@@ -331,6 +334,10 @@ while True:
                 print(f"\n{i} 종목이 상장 폐지되었습니다.")
                 del stock_market[i]
             delete_list.clear()
+
+        # 현재 자산 출력
+        print(f"\n현재 보유 자산: {player.money:,.0f}원")
+
         # 날짜 증가
         day += 1
 
