@@ -5,6 +5,7 @@
 import random
 
 # 삭제
+delete_list = []
 # ============================================
 # 주식 클래스
 # ============================================
@@ -15,16 +16,16 @@ class Stock:
 
         self.name = name
         self.price = price
+        self.start_price = price
 
     # 주가 변동
     def update_price(self):
 
-        change = random.randint(-5000, 5000)
+        change = random.randint(70, 130)
+        self.price = int(self.price * change)
 
-        # 상한가, 하한가 검사
-        if abs(change) <= self.price * 3 / 10:
-            self.price += change
-
+        if self.price < self.start_price / 10:
+            delete_list.append(self.name)
 # ============================================
 # 플레이어 클래스
 # ============================================
@@ -315,7 +316,8 @@ while True:
                 f"{old_price:,}원 → "
                 f"{stock.price:,}원"
             )
-
+        for i in delete_list:
+            del stock_market[i]
         # 날짜 증가
         day += 1
 
