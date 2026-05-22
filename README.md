@@ -44,13 +44,12 @@
 
 | Name | Role |
 | --- | --- |
-| Member 1 | Team Leader / Backend |
-| Member 2 | Frontend |
-| Member 3 | Database |
-| Member 4 | UI Design |
-| Member 5 | Trading Logic |
-| Member 6 | Testing & Documentation |
-
+| 이지훈 | --- |
+| 윤세현 | --- |
+| 박준우 | --- |
+| 중빌릭 | --- |
+| 송채원 | --- |
+| 김나연 | --- | 
 ---
 
 ## Project Structure
