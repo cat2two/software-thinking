@@ -10,6 +10,7 @@ with open("max.txt", "r") as f:
 
 # 삭제 리스트
 delete_list = []
+
 # ============================================
 # 주식 클래스
 # ============================================
@@ -22,11 +23,13 @@ class Stock:
         self.price = price
         self.start_price = price
 
+    def change_decision(self):
+        self.change = random.randint(70, 130)
+
     # 주가 변동
     def update_price(self):
 
-        change = random.randint(70, 130)
-        self.price = int(self.price * change/100)
+        self.price = int(self.price * self.change/100)
 
         if self.price < self.start_price / 10:
             delete_list.append(self.name)
@@ -218,6 +221,9 @@ day = 1
 # 메인 게임 루프
 # ============================================
 
+# 변동 값이 변동되었는가
+change_change = False
+
 while True:
 
     print("\n================================")
@@ -230,6 +236,11 @@ while True:
     for stock in stock_market.values():
 
         print(f"{stock.name}: {stock.price:,}원")
+        # 변동 폭 결정
+        if not change_change:
+            stock.change_decision()
+    else:
+        change_change = True
     
     # 현재 자산 출력
     print(f"\n현재 보유 자산: {player.money:,.0f}원")
@@ -239,7 +250,8 @@ while True:
     print("2. 매도")
     print("3. 포트폴리오 확인")
     print("4. 다음 날")
-    print("5. 종료")
+    print("5. 뉴스 보기")
+    print("6. 종료")
 
     choice = input("\n메뉴 선택: ")
 
@@ -335,17 +347,38 @@ while True:
                 del stock_market[i]
             delete_list.clear()
 
+        # 변동 값이 변동되지 않음
+        change_change = False
+
         # 현재 자산 출력
         print(f"\n현재 보유 자산: {player.money:,.0f}원")
 
         # 날짜 증가
         day += 1
+    
+    # ========================================
+    # 뉴스 보기
+    # ========================================
+
+    elif choice == "5":
+
+        print("\n오늘의 신문")
+        for i in stock_market.values():
+            print(i.change)
+            if i.change < 85:
+                print(f"{i.name} 대표이사 사임")
+            elif i.change < 100:
+                print(f"{i.name}에서 화재 발생")
+            elif i.change < 115:
+                print(f"{i.name}에서 약간의 호재")
+            else:
+                print(f"{i.name}에서 신기술 개발")
 
     # ========================================
     # 프로그램 종료
     # ========================================
 
-    elif choice == "5":
+    elif choice == "6":
 
         print("\n프로그램 종료")
         break
