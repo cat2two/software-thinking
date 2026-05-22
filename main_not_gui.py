@@ -326,7 +326,9 @@ while True:
                 f"{stock.price:,}원"
             )
         for i in delete_list:
-            del stock_market[i]
+            if i in stock_market:
+                del stock_market[i]
+            delete_list.clear()
         # 날짜 증가
         day += 1
 
