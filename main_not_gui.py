@@ -203,6 +203,12 @@ stock_market = {
 
 }
 
+with open("stock.txt", "r") as f:
+    stock_extra = list(f.read().split())
+
+for stock_name in stock_extra:
+    stock_market[stock_name] = Stock(f"{stock_name}", 5000)
+
 # ============================================
 # 플레이어 생성
 # ============================================
