@@ -364,7 +364,6 @@ while True:
 
         print("\n오늘의 신문")
         for i in stock_market.values():
-            print(i.change)
             if i.change < 85:
                 print(f"{i.name} 대표이사 사임")
             elif i.change < 100:
