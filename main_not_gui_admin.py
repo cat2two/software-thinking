@@ -1,5 +1,5 @@
 import pickle
-if __name__ == "__main__":
+def play():
     choice = input("1=plus\n2=minus\n3=initial money setting\n: ")
 
     if choice == "1":

@@ -5,8 +5,7 @@ import main_not_gui_admin
 
 print("""
 1. api 안 쓴 모드
-2. api 쓴 모드
-3. 관리자 모드
+2. 관리자 모드
       """)
 
 while True:
@@ -15,8 +14,6 @@ while True:
     if behavior == "1":
         main_not_gui.play()
     elif behavior == "2":
-        pass
-    elif behavior == "3":
-        pass
+        main_not_gui_admin.play()
     else:
         print("다시")
