@@ -1061,4 +1061,3 @@ root = tk.Tk()
 app = StockSimulatorGUI(root)
 
 root.mainloop()
-

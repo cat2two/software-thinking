@@ -373,15 +373,104 @@ def play():
         elif choice == "5":
 
             print("\n오늘의 신문")
+
+            # 경제 뉴스
+            economy_good = [
+
+                "미국 증시 상승 마감",
+                "외국인 투자자 순매수 증가",
+                "AI 산업 투자 확대",
+                "반도체 업황 회복 전망",
+                "국내 증시 투자 심리 개선"
+
+            ]
+
+            economy_bad = [
+
+                "미국 기준금리 인상 우려",
+                "세계 경기 침체 가능성 제기",
+                "국제 유가 급등",
+                "원달러 환율 상승",
+                "국내 증시 하락세 지속"
+
+            ]
+
+            market_average = 0
+
+            for stock in stock_market.values():
+                market_average += i.change
+
+            market_average /= len(stock_market)
+
+            if market_average >= 100:
+                print(random.choice(economy_good))
+            else:
+                print(random.choice(economy_bad))
+
+            print()
+
+            # 기업 뉴스
             for i in stock_market.values():
-                if i.change < 85:
-                    print(f"{i.name} 대표이사 사임")
+
+                # 폭락
+                if i.change < 80:
+
+                    bad_news = [
+
+                        f"{i.name} 대규모 적자 발생",
+                        f"{i.name} 대표이사 사임",
+                        f"{i.name} 공장 화재 발생",
+                        f"{i.name} 실적 급감 발표",
+                        f"{i.name} 대규모 리콜 사태"
+
+                    ]
+
+                    print(random.choice(bad_news))
+
+                # 하락
                 elif i.change < 100:
-                    print(f"{i.name}에서 화재 발생")
-                elif i.change < 115:
-                    print(f"{i.name}에서 약간의 호재")
+
+                    down_news = [
+
+                        f"{i.name} 투자 심리 악화",
+                        f"{i.name} 실적 감소 우려",
+                        f"{i.name} 경쟁사 점유율 상승",
+                        f"{i.name} 주가 하락세 지속",
+                        f"{i.name} 비용 증가 문제 발생"
+
+                    ]
+
+                    print(random.choice(down_news))
+
+                # 상승
+                elif i.change < 120:
+
+                    good_news = [
+
+                        f"{i.name} 신규 사업 진출",
+                        f"{i.name} 실적 기대감 상승",
+                        f"{i.name} 투자자 관심 증가",
+                        f"{i.name} 판매량 증가",
+                        f"{i.name} 기술 개발 성공"
+
+                    ]
+
+                    print(random.choice(good_news))
+
+                # 급등
                 else:
-                    print(f"{i.name}에서 신기술 개발")
+
+                    great_news = [
+
+                        f"{i.name} 신기술 개발 성공",
+                        f"{i.name} 역대 최고 실적 달성",
+                        f"{i.name} 글로벌 계약 체결",
+                        f"{i.name} 시장 점유율 급상승",
+                        f"{i.name} 대규모 투자 유치 성공"
+
+                    ]
+
+                    print(random.choice(great_news))
 
         # ========================================
         # 프로그램 종료
