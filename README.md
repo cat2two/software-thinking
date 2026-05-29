@@ -25,17 +25,10 @@
 
 ## Tech Stack
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
-
 ### Backend
 - Python
-- Flask
 
 ### Database
-- SQLite
 
 ---
 
