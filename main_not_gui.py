@@ -3,6 +3,7 @@
 # ============================================
 
 import random
+import pickle
 
 # 삭제 리스트
 delete_list = []
@@ -215,8 +216,8 @@ def play():
     # ============================================
     # 플레이어 생성
     # ============================================
-
-    INITIAL_MONEY = 1000000
+    with open("initial_money.pkl", "rb") as f:
+        INITIAL_MONEY = pickle.load(f)
 
     player = Player(INITIAL_MONEY)
 
