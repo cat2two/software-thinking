@@ -4,7 +4,7 @@ def play():
 
     if choice == "1":
         with open("stock.txt", "a", encoding="utf-8") as f:
-            f.write(f"{input()}\n")
+            f.write(f"{input("종목명: ")}\n")
 
     elif choice == "2":
         target = input()
@@ -17,4 +17,4 @@ def play():
 
     elif choice == "3":
         with open("initial_money.pkl", "wb") as f:
-            pickle.dump(int(input()),f)
+            pickle.dump(int(input("초기 금액: ")),f)
