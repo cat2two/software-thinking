@@ -1,6 +1,6 @@
 import pickle
 def play():
-    choice = input("1=plus\n2=minus\n3=initial money setting\n: ")
+    choice = input("1. 종목추가\n2. 종목삭제\n3. 보유자금 설정\n: ")
 
     if choice == "1":
         with open("stock.txt", "a", encoding="utf-8") as f:
