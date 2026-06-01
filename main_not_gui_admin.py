@@ -4,7 +4,7 @@ def play():
 
     if choice == "1":
         with open("stock.txt", "a", encoding="utf-8") as f:
-            f.write(f"{input("종목명: ")}\n")
+            f.write(input("종목명: "))
 
     elif choice == "2":
         target = input()
