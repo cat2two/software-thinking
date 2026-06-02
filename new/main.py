@@ -7,7 +7,7 @@ import sys
 from PyQt6.QtWidgets import QApplication
 from windows import StartWindow
 
-def main() -> None:
+def main():
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
     window = StartWindow()
