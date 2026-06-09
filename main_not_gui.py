@@ -191,8 +191,12 @@ class Player:
 def play():
     
     # 최고기록 가져오기
-    with open("max.txt", "r") as f:
-        max_money = int(f.read())
+    try:
+        with open("max.txt", "r", encoding="utf-8") as f:
+            content = f.read().strip()
+            max_money = int(content) if content else 0
+    except FileNotFoundError:
+        max_money = 0
 
     # ============================================
     # 주식 시장 생성
@@ -235,6 +239,12 @@ def play():
     change_change = False
 
     while True:
+                
+        total_assets = player.calculate_total_assets(stock_market)
+        max_money = max(max_money, total_assets)
+
+        with open("max.txt", "w", encoding="utf-8") as f:
+            f.write(str(max_money))
 
         print("\n================================")
         print(f"주식 시뮬레이터 - DAY {day}")
@@ -305,10 +315,6 @@ def play():
                 quantity
             )
 
-            with open("max.txt", "w") as f:
-                if max_money < player.money:
-                    max_money = player.money
-                    f.write(str(max_money))
 
         # ========================================
         # 포트폴리오 확인
