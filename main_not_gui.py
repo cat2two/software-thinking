@@ -398,7 +398,7 @@ def play():
             market_average = 0
 
             for stock in stock_market.values():
-                market_average += i.change
+                market_average += stock.change
 
             market_average /= len(stock_market)
 
