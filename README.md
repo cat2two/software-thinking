@@ -26,16 +26,12 @@
 ## Tech Stack
 
 ### Frontend
-- HTML
-- CSS
-- JavaScript
+- PyQt6
 
 ### Backend
 - Python
-- Flask
 
-### Database
-- SQLite
+
 
 ---
 
@@ -55,9 +51,13 @@
 
 ```bash
 project/
-├── app.py
-├── templates/
-├── static/
-├── database/
-├── requirements.txt
+├── config.py
+├── main.py
+├── max.txt
+├── models.py
+├── stock_prices.json
+├── stock.txt
+├── utils.py
+├── widgets.py
+├── windows.py
 └── README.md
